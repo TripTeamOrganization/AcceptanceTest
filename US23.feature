@@ -1,4 +1,4 @@
-Feature: US-23: Sección “Testimonios”
+Feature: US-23: Acceso a la sección “Testimonios”
 
     Como visitante del landing page
     Debo poder ver testimonios y experiencias de otros usuarios
