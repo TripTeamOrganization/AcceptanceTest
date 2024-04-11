@@ -1,4 +1,4 @@
-Feature: US-27: Acceso a la sección de Convenios
+Feature: US-21: Acceso a la sección de Convenios
 
     Como visitante del landing page
     Quiero visualizar los convenios que tiene TripMate

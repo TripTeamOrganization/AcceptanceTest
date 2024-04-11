@@ -1,4 +1,4 @@
-Feature: US-26: Visualizar features de la aplicación
+Feature: US-20: Visualizar features de la aplicación
 
     Como visitante del landing page
     Debo poder visualizar todos las funcionalidades y servicios que brinda TripMate
