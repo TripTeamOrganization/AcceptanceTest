@@ -1,18 +1,14 @@
-Feature: US-26: Eliminar cuenta en TripMate
+Feature: US-26: Visualizar features de la aplicación
+  Como visitante del landing page
+  Debo poder visualizar todos las funcionalidades y servicios que brinda TripMate
+  Para entender el uso de la aplicación
 
-    Como usuario de TripMate,
-    quiero poder eliminar mi cuenta
-    para que mis datos sean eliminados permanentemente.
+  Scenario: Ver todas las funcionalidades y servicios
+    Given Soy un visitante del landing page
+    When Accedo al sitio web de TripMate
+    Then Debería ver todas las funcionalidades y servicios que ofrece TripMate
 
-  Scenario: Scenario name: Eliminar cuenta
-    Given que el usuario ha decidido eliminar su cuenta de TripMate
-    When acceda a la configuración de su cuenta y seleccione la opción para eliminarla
-    Then recibirá una confirmación
-    And, después de confirmar, su cuenta y todos los datos asociados serán eliminados permanentemente
-
-  Scenario: Cancelar eliminación de cuenta
-    Given que el usuario va a eliminar su cuenta
-    When se muestre la confirmación de cancelar su cuenta
-    And cancele la confirmación
-    Then la cuenta del usuario no se eliminará
-
+  Scenario: Entender el uso de la aplicación
+    Given Soy un visitante del landing page
+    When Exploro las secciones de la página
+    Then Debería comprender cómo utilizar la aplicación TripMate
