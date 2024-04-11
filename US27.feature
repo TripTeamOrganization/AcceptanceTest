@@ -1,4 +1,4 @@
-Feature: US-27: Acceso a la sección de "Convenios"
+Feature: US-27: Acceso a la sección de Convenios
 
     Como visitante del landing page
     Quiero visualizar los convenios que tiene TripMate
@@ -6,7 +6,7 @@ Feature: US-27: Acceso a la sección de "Convenios"
 
   Scenario: Acceso a la sección de Convenios
     Given que el usuario se encuentra en la página de inicio
-    When acceda a la sección "Convenios"
+    When acceda a la sección Convenios
     Then visualizará las distintas empresas con las que trabaja TripMate
 
   Scenario: Sección no atractiva
