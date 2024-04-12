@@ -6,7 +6,7 @@ Feature: US-24: Acceder desde cualquier dispositivo a la landing page
 
   Scenario: Accesibilidad desde diferentes dispositivos
     Given Soy un visitante del landing page
-    When Accedo al sitio web desde un dispositivo diferente
+    When Acceda al sitio web desde un dispositivo diferente (móvil, tablet, PC)
     Then Debería poder visualizar la pagina correctamente en cualquier dispositivo
 
   Scenario: Acceso fácil desde cualquier lugar
