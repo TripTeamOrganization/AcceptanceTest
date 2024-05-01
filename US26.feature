@@ -11,7 +11,6 @@ Feature: US-02: Inicio de sesión
     And Hago clic en "Iniciar sesión"
     Then Debería ser redirigido al panel principal del aplicativo
     
-
   Scenario: Intentar iniciar sesión con credenciales incorrectas
     Given Estoy en la página de inicio de sesión
     When Ingreso un nombre de usuario o correo electrónico incorrecto
