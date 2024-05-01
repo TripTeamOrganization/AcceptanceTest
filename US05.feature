@@ -1,4 +1,4 @@
-Feature: US-05: Buscar destinos por filtros
+Feature: US-05: Búsqueda por filtros
 
   Como usuario
   Quiero buscar vuelos, alojamientos, restaurantes y actividades utilizando filtros
