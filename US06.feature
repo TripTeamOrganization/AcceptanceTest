@@ -1,4 +1,5 @@
 Feature: US-06: Ver alojamientos
+
   Como usuario
   Quiero ver todos los alojamientos disponibles en la aplicación
   Para poder planificar mi viaje y mi itinerario
