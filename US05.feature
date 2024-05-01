@@ -1,17 +1,15 @@
 Feature: US-05: Buscar destinos por filtros
 
   Como usuario
-  Debo poder buscar destinos aplicando diferentes filtros
-  Para encontrar destinos que cumplan con mis preferencias y necesidades
+  Quiero buscar vuelos, alojamientos, restaurantes y actividades utilizando filtros
+  Para explorar opciones según mis intereses y preferencias
 
-  Scenario: Buscar destinos por tipo de destino
-    Given Estoy en la unsa de las secciones de la página 
-    When Selecciono el cuadro para "buscar" segun la sección
-    And Hago clic en "Buscar"
-    Then Debería flitrar una lista segun el nombre del destino 
+  Scenario: Filtrar por precio
+    Given el usuario quiere buscar un vuelo, alojamiento, restaurante o actividad en un rango de precio 
+    When utilice el slider de precio en la sección
+    Then debería ver una variedad de opciones según el precio ingresado
 
-  Scenario: Buscar destinos por rango de precios
-    Given Estoy en la unsa de las secciones de la página 
-    When Selecciono un rango de precios 
-    And Fijo el precio deseado en el slide
-    Then Debería ver una lista de destinos dentro de ese rango de precios
+  Scenario: Filtro por horario
+    Given el usuario quiere seleccionar un restaurante, una actividad o un vuelo
+    When realice la búsqueda por filtro de horario de apertura
+    Then debería ver las opciones según el horario ingresado
