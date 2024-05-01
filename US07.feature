@@ -1,4 +1,4 @@
-Feature: US-06: Ver vuelos
+Feature: US-07: Ver vuelos
 
   Como usuario
   ver todos vuelos disponibles en la aplicación
