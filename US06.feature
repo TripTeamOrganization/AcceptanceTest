@@ -1,34 +1,14 @@
-Feature: US-06: Ver alojamientos, vuelos, actividades y restaurantes disponibles
-
+Feature: US-06: Ver alojamientos
   Como usuario
-  Debo poder ver opciones de alojamientos, vuelos, actividades y restaurantes
-  Para planificar mi viaje y decidir mis actividades durante mi estancia
+  Quiero ver todos los alojamientos disponibles en la aplicación
+  Para poder planificar mi viaje y mi itinerario
 
-  Scenario: Acceder a las opciones desde el toolbar
-    Given Estoy en la página principal de la aplicación
-    When Miro la barra de herramientas
-    Then Debería ver opciones para "Alojamientos", "Vuelos", "Actividades" y "Restaurantes"
+  Scenario: Ver alojamientos
+    Given el usuario quiere ver alojamientos disponibles
+    When ingrese al apartado de alojamientos
+    Then podrá ver el nombre, la dirección, una breve descripción y el precio de todos los alojamientos disponibles
 
-  Scenario: Ver alojamientos disponibles
-    Given Estoy en la página principal de la aplicación
-    And Hago clic en la opción "Alojamientos" en el toolbar
-    When Se me muestra la página de alojamientos
-    Then Debería ver una lista de alojamientos disponibles
-
-  Scenario: Ver vuelos disponibles
-    Given Estoy en la página principal de la aplicación
-    And Hago clic en la opción "Vuelos" en el toolbar
-    When Se me muestra la página de vuelos
-    Then Debería ver una lista de vuelos disponibles
-
-  Scenario: Ver actividades disponibles
-    Given Estoy en la página principal de la aplicación
-    And Hago clic en la opción "Actividades" en el toolbar
-    When Se me muestra la página de actividades
-    Then Debería ver una lista de actividades disponibles para mi destino
-
-  Scenario: Ver restaurantes disponibles
-    Given Estoy en la página principal de la aplicación
-    And Hago clic en la opción "Restaurantes" en el toolbar
-    When Se me muestra la página de restaurantes
-    Then Debería ver una lista de restaurantes disponibles para mi destino
+  Scenario: Ver alojamientos por precio
+    Given el usuario quiere ver alojamientos disponibles en un rango de precio
+    When acomode el rango de precio en el slider de precio
+    Then podrá ver el nombre, la dirección, una breve descripción y el precio de todos los alojamientos que se encuentren en el rango de precio ingresado
