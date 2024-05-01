@@ -1,4 +1,4 @@
-Feature: US-07: Ver actividades
+Feature: US-08: Ver actividades
 
   Como usuario
   Quiero ver todas las actividades disponibles en la aplicación
