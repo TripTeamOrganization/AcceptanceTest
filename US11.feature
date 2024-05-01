@@ -1,27 +1,17 @@
+Feature: US-11: Reservar vuelos
 
-Feature: US-11: Planificar itinerario
+  Como usuario
+  Quiero poder reservar vuelos en la aplicación
+  Para poder planificar mi viaje de manera eficiente
 
-  Como usuario registrado
-  Debo poder planificar mi itinerario agregando reservas y actividades
-  Para organizar mis viajes de forma clara y ordenada
+  Scenario: Búsqueda de vuelo
 
-  Scenario: Agregar una reserva de alojamiento al itinerario
-    Given Soy un usuario registrado
-    And Realizo una reserva de alojamiento para una fecha específica
-    When Accedo a mi itinerario
-    Then Debería ver la reserva de alojamiento en mi itinerario con la fecha correcta
+    Given que el usuario desea viajar
+    When acceda a la sección de vuelos en la aplicación
+    Then podrá ver opciones de vuelos disponibles a su destino
 
-  Scenario: Agregar un vuelo al itinerario
-    Given Soy un usuario registrado
-    And Realizo reserva de vuelo para una fecha específica
-    When Accedo a mi itinerario
-    Then Debería ver la reserva de vuelo en mi itinerario con la fecha correcta
+  Scenario: Reserva de vuelo
 
-  Scenario: Ver el itinerario completo
-    Given Soy un usuario registrado
-    When Accedo a mi itinerario
-    Then Debería ver todas las reservas y actividades que he agregado
-    And Debería verlas ordenadas por fecha
-
- 
-
+    Given que el usuario desea reservar un vuelo
+    When encuentre el vuelo adecuado y seleccione el que más se le acomode
+    Then podrá reservar el vuelo para su destino
