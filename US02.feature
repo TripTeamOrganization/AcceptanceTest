@@ -1,22 +1,20 @@
 Feature: US-02: Inicio de sesión
 
   Como usuario registrado
-  Debo poder iniciar sesión en la aplicación
-  Para acceder a mi cuenta y a todas las funcionalidades del sistema
+  Quiero poder iniciar sesión en la aplicación
+  Para acceder a mi cuenta
 
-  Scenario: Iniciar sesión con credenciales válidas
-    Given Soy un usuario registrado
-    And Estoy en la página de inicio de sesión
-    When Ingreso mi nombre de usuario o correo electrónico y mi contraseña correctos
+  Scenario: Inicio de sesión exitoso
+    Given el usuario se ha registrado
+    When ingrese su correo electrónico y contraseña
     And Hago clic en "Iniciar sesión"
-    Then Debería ser redirigido al panel principal del aplicativo
+    Then debería poder acceder a mi cuenta
     
-  Scenario: Intentar iniciar sesión con credenciales incorrectas
-    Given Estoy en la página de inicio de sesión
-    When Ingreso un nombre de usuario o correo electrónico incorrecto
-    And Ingreso una contraseña incorrecta
+  Scenario: Inicio de sesión fallido
+    Given el usuario se ha registrado
+    When ingrese una credencial incorrecta
     And Hago clic en "Iniciar sesión"
     Then Debería ver un mensaje de error indicando que las credenciales son incorrectas
-    And Debería permanecer en la página de inicio de sesión
+   
 
 
