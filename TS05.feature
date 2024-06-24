@@ -1,11 +1,18 @@
-Feature: Cerrar Sesión de Usuario
+Feature: Registrar una nueva reserva
 
-  As a developer working on the CodePace application
-  I want to provide an API for users to log out of their accounts
-  So that their data remains secure and private when they finish their session on the platform.
+  Como desarrollador que trabaja en la aplicación TripMate
+  Quiero registrar una nueva reserva asociada a un usuario mediante una API
+  Para que esté disponible para crear funcionalidades en mi aplicación
 
-  Scenario: Cerrar sesión de usuario con un token válido
-    Given el usuario proporciona un token de autenticación válido
-    When se envía una solicitud DELETE a /api/logout con el token de autenticación
-    Then la API responde con un código de estado 204 (No Content)
-    And el usuario es desconectado exitosamente de su sesión en la plataforma
+  Scenario: Añadir reserva nueva
+    Given que el endpoint "/reservas" está disponible
+    When se envía una solicitud POST al endpoint "/reservas" con los datos de la reserva
+    Then se recibe una respuesta con status 201
+    And se incluye en la respuesta un nuevo ID de reserva y los valores registrados
+
+  Scenario: Intento de añadir una reserva ya existente
+    Given que el endpoint "/reservas" está disponible
+    When se envía una solicitud POST al endpoint "/reservas" con los datos de una reserva
+    And ya existe una reserva para ese servicio con los mismos datos
+    Then se recibe una respuesta con status 409
+    And el mensaje "Una reserva a este servicio ya existe" se muestra en el cuerpo de la respuesta

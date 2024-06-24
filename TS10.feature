@@ -1,11 +1,18 @@
-Feature: Eliminar Cuenta de Usuario
+Feature: Borrar información de alojamientos
 
-  As a developer working on the CodePace application
-  I want to provide an API for users to permanently delete their accounts
-  So that users can completely withdraw from our platform if they wish.
+  Como desarrollador que trabaja en la aplicación TripMate
+  Quiero borrar la información de los alojamientos mediante una API
+  Para que no se muestre en la aplicación
 
-  Scenario: Eliminar cuenta de usuario con un token de autenticación válido y confirmación de eliminación
-    Given el usuario confirma su intención de eliminar su cuenta
-    When se envía una solicitud DELETE a /api/delete-account con el token de autenticación del usuario y la confirmación de eliminación
-    Then la API responde con un código de estado 204 (No Content)
-    And la cuenta de usuario se elimina permanentemente de nuestra base de datos
+  Scenario: Borrar alojamientos existentes
+    Given que el endpoint "/alojamientos/{id}" está disponible
+    When se envía una solicitud DELETE al endpoint "/alojamientos/{id}"
+    Then se recibe una respuesta con status 204
+    And los datos del alojamiento se borran
+
+  Scenario: Alojamiento no disponible para borrar
+    Given que el endpoint "/alojamientos/{id}" está disponible
+    When se envía una solicitud DELETE al endpoint "/alojamientos/{id}"
+    And no existe el alojamiento con esa id
+    Then se recibe una respuesta con status 404
+    And el mensaje "No hay alojamientos con esa id" se muestra en el cuerpo de la respuesta

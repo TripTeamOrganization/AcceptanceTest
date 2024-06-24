@@ -1,11 +1,18 @@
-Feature: Verificar Correo Electrónico
+Feature: Registrar un nuevo itinerario
 
-  As a developer working on the CodePace application
-  I want to provide an API for users to verify their email address after registration
-  So that we can ensure the authenticity of user accounts on our platform.
+  Como desarrollador que trabaja en la aplicación TripMate
+  Quiero registrar un nuevo itinerario asociado a un usuario mediante una API
+  Para que esté disponible para crear funcionalidades en mi aplicación
 
-  Scenario: Verificar correo electrónico con un token de verificación válido
-    Given el usuario proporciona un token de verificación válido
-    When se envía una solicitud POST a /api/verify-email con el token de verificación del usuario
-    Then la API responde con un código de estado 200 (OK)
-    And la cuenta de usuario se marca como verificada en nuestra base de datos
+  Scenario: Añadir itinerario nuevo
+    Given que el endpoint "/itinerarios" está disponible
+    When se envía una solicitud POST al endpoint "/itinerarios" con los datos del itinerario
+    Then se recibe una respuesta con status 201
+    And se incluye en la respuesta un nuevo ID de itinerario y los valores registrados
+
+  Scenario: Intento de añadir un itinerario ya existente
+    Given que el endpoint "/itinerarios" está disponible
+    When se envía una solicitud POST al endpoint "/itinerarios" con los datos del itinerario
+    And un itinerario con ese nombre ya está registrado
+    Then se recibe una respuesta con status 409
+    And el mensaje "Un itinerario con estos datos ya existe" se muestra en el cuerpo de la respuesta

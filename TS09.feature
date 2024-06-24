@@ -1,11 +1,18 @@
-Feature: Registrar Actividad de Usuario
+Feature: Identity and Access Management (IAM) - Obtener información de perfil de usuario
 
-  As a developer working on the CodePace application
-  I want to provide an API to log user activity on the platform
-  So that we can analyze user engagement and improve the user experience.
+  Como desarrollador que trabaja en la aplicación TripMate
+  Quiero obtener información de perfil de usuario mediante una API
+  Para mostrarla en la aplicación cuando se solicite
 
-  Scenario: Registrar actividad de usuario con detalles de la acción y un token de autenticación válido
-    Given se realiza una acción por parte del usuario en la plataforma
-    When se envía una solicitud POST a /api/activity-log con los detalles de la acción y el token de autenticación del usuario
-    Then la API responde con un código de estado 201 (Created)
-    And la actividad del usuario se registra correctamente en nuestra base de datos
+  Scenario: Obtener información de perfil de usuario existente
+    Given que el endpoint "/users/{id}" está disponible
+    When se envía una solicitud GET al endpoint "/users/{id}" con el identificador del usuario y un token de autenticación válido
+    Then se recibe una respuesta con status 200
+    And los datos del perfil del usuario se devuelven en el cuerpo de la respuesta
+
+  Scenario: Usuario no encontrado
+    Given que el endpoint "/users/{id}" está disponible
+    When se envía una solicitud GET al endpoint "/users/{id}" con el identificador del usuario y un token de autenticación válido
+    And el identificador del usuario no existe
+    Then se recibe una respuesta con status 404
+    And el mensaje "Usuario no encontrado" se muestra en el cuerpo de la respuesta

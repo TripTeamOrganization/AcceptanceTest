@@ -1,11 +1,18 @@
-Feature: Obtener Detalles del Usuario
+Feature: Obtener información de actividades
 
-  As a developer working on the CodePace application
-  I want to provide an API for users to retrieve their profile details
-  So that they can view and update their personal information when necessary.
+  Como desarrollador que trabaja en la aplicación TripMate
+  Quiero obtener la información de las actividades mediante una API
+  Para mostrarla en la aplicación cuando se solicite
 
-  Scenario: Obtener detalles del perfil del usuario con un token válido
-    Given el usuario proporciona un token de autenticación válido
-    When se envía una solicitud GET a /api/profile con el token de autenticación
-    Then la API responde con un código de estado 200 (OK)
-    And el cuerpo de la respuesta contiene los detalles del perfil del usuario
+  Scenario: Obtener actividades disponibles
+    Given que el endpoint "/actividades" está disponible
+    When se envía una solicitud GET al endpoint "/actividades"
+    Then se recibe una respuesta con status 200
+    And los datos de las actividades se devuelven en el cuerpo de la respuesta
+
+  Scenario: Actividades no disponibles
+    Given que el endpoint "/actividades" está disponible
+    When se envía una solicitud GET al endpoint "/actividades"
+    And no hay actividades disponibles
+    Then se recibe una respuesta con status 404
+    And el mensaje "No hay actividades disponibles" se muestra en el cuerpo de la respuesta

@@ -1,11 +1,18 @@
-Feature: Actualizar Detalles del Usuario
+Feature: Obtener información de restaurantes
 
-  As a developer working on the CodePace application
-  I want to provide an API for users to update their profile information
-  So that they can keep their personal data up-to-date on our platform.
+  Como desarrollador que trabaja en la aplicación TripMate
+  Quiero obtener la información de los restaurantes mediante una API
+  Para mostrarla en la aplicación cuando se solicite
 
-  Scenario: Actualizar detalles del perfil del usuario con un token válido
-    Given el usuario proporciona un token de autenticación válido y los nuevos detalles del perfil
-    When se envía una solicitud PUT a /api/profile con el token de autenticación y los nuevos detalles
-    Then la API responde con un código de estado 200 (OK)
-    And el cuerpo de la respuesta contiene los detalles actualizados del perfil del usuario
+  Scenario: Obtener restaurantes disponibles
+    Given que el endpoint "/restaurantes" está disponible
+    When se envía una solicitud GET al endpoint "/restaurantes"
+    Then se recibe una respuesta con status 200
+    And los datos de los restaurantes se devuelven en el cuerpo de la respuesta
+
+  Scenario: Restaurantes no disponibles
+    Given que el endpoint "/restaurantes" está disponible
+    When se envía una solicitud GET al endpoint "/restaurantes"
+    And no hay restaurantes disponibles
+    Then se recibe una respuesta con status 404
+    And el mensaje "No hay restaurantes disponibles" se muestra en el cuerpo de la respuesta

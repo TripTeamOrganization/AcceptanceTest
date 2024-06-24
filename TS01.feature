@@ -1,11 +1,18 @@
-Feature: Registrar Usuario
+Feature: Obtener información de alojamientos
 
-  As a developer working on the CodePace application
-  I want to be able to register a new user via an API
-  So that users can sign up for our platform and access our technical interview preparation resources.
+  Como desarrollador que trabaja en la aplicación TripMate
+  Quiero obtener la información de los alojamientos mediante una API
+  Para mostrarla en la aplicación cuando se solicite
 
-  Scenario: Registrar un nuevo usuario con información válida
-    Given el usuario proporciona información de registro válida
-    When se envía una solicitud POST a /api/users con los detalles del usuario
-    Then la API responde con un código de estado 201 (Created)
-    And el cuerpo de la respuesta contiene los detalles del usuario recién registrado
+  Scenario: Obtener alojamientos disponibles
+    Given que el endpoint "/alojamientos" está disponible
+    When se envía una solicitud GET al endpoint "/alojamientos"
+    Then se recibe una respuesta con status 200
+    And los datos de los alojamientos se devuelven en el cuerpo de la respuesta
+
+  Scenario: Alojamientos no disponibles
+    Given que el endpoint "/alojamientos" está disponible
+    When se envía una solicitud GET al endpoint "/alojamientos"
+    And no hay alojamientos disponibles
+    Then se recibe una respuesta con status 404
+    And el mensaje "No hay alojamientos disponibles" se muestra en el cuerpo de la respuesta

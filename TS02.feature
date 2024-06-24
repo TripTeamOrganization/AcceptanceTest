@@ -1,11 +1,18 @@
-Feature: Iniciar Sesión de Usuario
+Feature: Obtener información de vuelos
 
-  As a developer working on the CodePace application
-  I want to provide an API for users to log into their accounts
-  So that they can access their personalized content and continue their technical interview preparation activities.
+  Como desarrollador que trabaja en la aplicación TripMate
+  Quiero obtener la información de los vuelos mediante una API
+  Para mostrarla en la aplicación cuando se solicite
 
-  Scenario: Iniciar sesión de usuario con credenciales válidas
-    Given el usuario proporciona credenciales de inicio de sesión válidas
-    When se envía una solicitud POST a /api/login con las credenciales del usuario
-    Then la API responde con un código de estado 200 (OK)
-    And el cuerpo de la respuesta contiene un token de autenticación válido para el usuario
+  Scenario: Obtener vuelos disponibles
+    Given que el endpoint "/vuelos" está disponible
+    When se envía una solicitud GET al endpoint "/vuelos"
+    Then se recibe una respuesta con status 200
+    And los datos de los vuelos se devuelven en el cuerpo de la respuesta
+
+  Scenario: Vuelos no disponibles
+    Given que el endpoint "/vuelos" está disponible
+    When se envía una solicitud GET al endpoint "/vuelos"
+    And no hay vuelos disponibles
+    Then se recibe una respuesta con status 404
+    And el mensaje "No hay vuelos disponibles" se muestra en el cuerpo de la respuesta
